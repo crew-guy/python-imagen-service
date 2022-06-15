@@ -34,7 +34,13 @@ modified_template = return_html(template)
 @profile()
 def use_pdfkit(html):
     options = {
-    "enable-local-file-access": None
+    "enable-local-file-access": None,
+    'page-height': 405,
+    'page-width': 720,
+    'margin-top': '0.0in',
+    'margin-right': '0.0in',
+    'margin-bottom': '0.0in',
+    'margin-left': '0.0in'
     }
     pdfkit.from_string(html, 'pdfkit.pdf', options=options)
 
@@ -49,9 +55,9 @@ def use_htmltoimz(html):
     """Generate a PDF file from a string of HTML."""
     hti.screenshot(html_str=html, css_file='./styles/combat.css', save_as='html2img.png',)
 
-# use_pdfkit(modified_template)
+use_pdfkit(modified_template)
 # use_weasyprint(modified_template)
-use_htmltoimz(modified_template)
+# use_htmltoimz(modified_template)
 # Path('generated.html').write_bytes(modified_template)
 t1=time.time()
 total = t1-t0
