@@ -1,8 +1,16 @@
-<link rel="stylesheet" href="../styles/combat.css"/>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://ankitsanghvi-blog-images.s3.ap-south-1.amazonaws.com/test-public/styles/combat.css"/>
+  <base href="/Users/ankitravikumars/Desktop/python-imagen-service/py-img/">
+</head>
+<body>
+  
 <div class="background">
   <nav>
     <div class="logo-cnr">
-      <img src="../static/unacademy-text-logo.svg" alt="unacademy">
+      <img src="https://ankitsanghvi-blog-images.s3.ap-south-1.amazonaws.com/test-public/static/unacademy-text-logo.svg" alt="unacademy">
     </div>
   </nav>
   <section class="combat-section">
@@ -13,7 +21,7 @@
         {% if combat.date %}
         <div class="combat-row">
           <div class="combat-logo-cnr">
-            <img src="../static/calendar-logo.svg" alt="date"/>
+            <img src="https://ankitsanghvi-blog-images.s3.ap-south-1.amazonaws.com/test-public/static/calendar-logo.svg" alt="date"/>
           </div>
           <p>{{combat.date}}</p>
         </div>
@@ -21,7 +29,7 @@
         {% if combat.time %}
         <div class="combat-row">
           <div class="combat-logo-cnr">
-            <img src="../static/clock-logo.svg" alt="time"/>
+            <img src="https://ankitsanghvi-blog-images.s3.ap-south-1.amazonaws.com/test-public/static/clock-logo.svg" alt="time"/>
           </div>
           <p>{{combat.time}}</p>
         </div>
@@ -29,7 +37,7 @@
         {% if combat.topic %}
         <div class="combat-row">
           <div class="combat-logo-cnr">
-            <img src="../static/book-logo.svg" alt="topic"/>
+            <img src="https://ankitsanghvi-blog-images.s3.ap-south-1.amazonaws.com/test-public/static/book-logo.svg" alt="topic"/>
           </div>
           <p>{{combat.topic}}</p>
         </div>
@@ -37,7 +45,7 @@
         {% if combat.details %}
         <div class="combat-row">
           <div class="combat-logo-cnr">
-            <img src="../static/settings-logo.svg" alt="settings"/>
+            <img src="https://ankitsanghvi-blog-images.s3.ap-south-1.amazonaws.com/test-public/static/settings-logo.svg" alt="settings"/>
           </div>
           {% for detail in combat.details %}
             {% if loop.first %}<span>{{detail}}</span>{% else %}•<span>{{detail}}</span>{% endif %}
@@ -59,3 +67,4 @@
 
   
 </div>
+</body>

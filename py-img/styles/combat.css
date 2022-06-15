@@ -1,7 +1,7 @@
-/* @font-face {
+@font-face {
   font-family: 'Averta';
-  src: url("../fonts/avertastd-bold.otf");
-} */
+  src: url("/Users/ankitravikumars/Desktop/python-imagen-service/py-img/fonts/avertastd-bold.otf");
+}
 
 * {
   margin: 0;
@@ -14,8 +14,7 @@
 .background {
   width: 100%;
   height: 100%;
-  background: url("../static/background.svg") no-repeat 50% 50%;
-  /* background: #4291ff; */
+  background: url("https://ankitsanghvi-blog-images.s3.ap-south-1.amazonaws.com/test-public/static/background.svg") no-repeat 50% 50%;
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
