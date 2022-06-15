@@ -13,11 +13,19 @@ env = Environment(
     autoescape=select_autoescape()
 )
 
-template = env.get_template("hello.html")
+template = env.get_template("combat.html")
 
 def return_html(template_name):
     template = env.get_template(template_name)
-    return template.render(name="UPSC Prep", profile_image="sir.png")
+    return template.render(combat={
+        'name':'Fundamentals of JEE - Physics, Chemistry & Mathematics', 
+        'time':'2pm', 
+        'date':'12/12/2019',
+        'topic':'Chemical Bonding', 
+        'details':['1 round', '54 questions'], 
+        'duration':'60mins', 
+        'coupon_code':'ANK2001' 
+        })
 
 modified_template = return_html(template) 
 
@@ -41,7 +49,14 @@ def use_htmltoimz(html):
 
 # use_pdfkit(modified_template)
 # use_weasyprint(modified_template)
-use_htmltoimz(modified_template)
+# use_htmltoimz(modified_template)
+# Path('generated.html').write_bytes(modified_template)
 t1=time.time()
 total = t1-t0
 print(total)
+
+
+# Write to a generated HTML file
+file = open("templates/generated.html", "w") 
+file.write(modified_template) 
+file.close() 

@@ -7,58 +7,60 @@
   </nav>
   <section class="combat-section">
     <div class="combat-name">
-      <h1>{{combat.name}}</h1>
+      <h1>Fundamentals of JEE - Physics, Chemistry &amp; Mathematics</h1>
     </div>
     <div class="combat-details-wrapper">
-        {% if combat.date %}
+        
         <div class="combat-row">
           <div class="combat-logo-cnr">
             <img src="../static/calendar-logo.svg" alt="date"/>
           </div>
-          <p>{{combat.date}}</p>
+          <p>12/12/2019</p>
         </div>
-        {% endif %}
-        {% if combat.time %}
+        
+        
         <div class="combat-row">
           <div class="combat-logo-cnr">
             <img src="../static/clock-logo.svg" alt="time"/>
           </div>
-          <p>{{combat.time}}</p>
+          <p>2pm</p>
         </div>
-        {% endif %}
-        {% if combat.topic %}
+        
+        
         <div class="combat-row">
           <div class="combat-logo-cnr">
             <img src="../static/book-logo.svg" alt="topic"/>
           </div>
-          <p>{{combat.topic}}</p>
+          <p>Chemical Bonding</p>
         </div>
-        {% endif %}
-        {% if combat.details %}
+        
+        
         <div class="combat-row">
           <div class="combat-logo-cnr">
             <img src="../static/settings-logo.svg" alt="settings"/>
           </div>
-          {% for detail in combat.details %}
-            {% if loop.first %}
-                <span>{{detail}}</span>
-            {% else %}
-              •<span>{{detail}}</span>
-            {% endif %}
-          {% endfor %}
+          
+            
+                <span>1 round</span>
+            
+          
+            
+              •<span>54 questions</span>
+            
+          
         </div>
-        {% endif %}
+        
       </div>
   </section>
   <footer>
-    {% if combat.coupon_code %}
+    
     <div class="coupon-code-wrapper">
       <div class="coupon-code-container"></div>
       <div class="coupon-text">
-        <p>Use code <span class="coupon-code">{{combat.coupon_code}}</span> </p>
+        <p>Use code <span class="coupon-code">ANK2001</span> </p>
       </div>
     </div>
-    {% endif %}
+    
   </footer>
 
   
