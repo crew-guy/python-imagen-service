@@ -1,8 +1,11 @@
-<link rel="stylesheet" href="../styles/combat.css"/>
+<head>
+  <base href="/Users/adityaarora/code/python-imagen-service/py-img/">
+</head>
+<link rel="stylesheet" href="styles/combat.css"/>
 <div class="background">
   <nav>
     <div class="logo-cnr">
-      <img src="../static/unacademy-text-logo.svg" alt="unacademy">
+      <img src="static/unacademy-text-logo.svg" alt="unacademy">
     </div>
   </nav>
   <section class="combat-section">
@@ -13,7 +16,7 @@
         {% if combat.date %}
         <div class="combat-row">
           <div class="combat-logo-cnr">
-            <img src="../static/calendar-logo.svg" alt="date"/>
+            <img src="static/calendar-logo.svg" alt="date"/>
           </div>
           <p>{{combat.date}}</p>
         </div>
@@ -21,7 +24,7 @@
         {% if combat.time %}
         <div class="combat-row">
           <div class="combat-logo-cnr">
-            <img src="../static/clock-logo.svg" alt="time"/>
+            <img src="static/clock-logo.svg" alt="time"/>
           </div>
           <p>{{combat.time}}</p>
         </div>
@@ -29,7 +32,7 @@
         {% if combat.topic %}
         <div class="combat-row">
           <div class="combat-logo-cnr">
-            <img src="../static/book-logo.svg" alt="topic"/>
+            <img src="static/book-logo.svg" alt="topic"/>
           </div>
           <p>{{combat.topic}}</p>
         </div>
@@ -37,7 +40,7 @@
         {% if combat.details %}
         <div class="combat-row">
           <div class="combat-logo-cnr">
-            <img src="../static/settings-logo.svg" alt="settings"/>
+            <img src="static/settings-logo.svg" alt="settings"/>
           </div>
           {% for detail in combat.details %}
             {% if loop.first %}<span>{{detail}}</span>{% else %}•<span>{{detail}}</span>{% endif %}
