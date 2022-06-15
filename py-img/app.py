@@ -3,7 +3,7 @@ from memory_profiler import profile
 import time
 from pathlib import Path
 import pdfkit
-from weasyprint import HTML
+from weasyprint import HTML, CSS
 from html2image import Html2Image
 hti = Html2Image()
 
@@ -14,6 +14,7 @@ env = Environment(
 )
 
 template = env.get_template("combat.html")
+# template = env.get_template("test.html")
 
 def return_html(template_name):
     template = env.get_template(template_name)
@@ -26,28 +27,30 @@ def return_html(template_name):
         'duration':'60mins', 
         'coupon_code':'ANK2001' 
         })
+    # return template.render()
 
 modified_template = return_html(template) 
 
 @profile()
 def use_pdfkit(html):
     print(html)
-    pdfkit.from_string(html, 'pdfkit.pdf')
+    options = {
+    "enable-local-file-access": None
+    }
+    pdfkit.from_string(html, 'pdfkit.pdf', options=options)
 
 @profile()
 def use_weasyprint(html):
     """Generate a PDF file from a string of HTML."""
     htmldoc = HTML(string=html, base_url="")
-    print(html)
-    pdf = htmldoc.write_pdf()
-    Path('weasyprint.pdf').write_bytes(pdf)
+    return htmldoc.write_pdf(target='./weasyprint.pdf',stylesheets=[CSS('./styles/combat.css')])
 
 @profile()
 def use_htmltoimz(html):
     """Generate a PDF file from a string of HTML."""
-    hti.screenshot(html_str=html, save_as='html2img.png')
+    hti.screenshot(html_str=html, css_file='./styles/combat.css', save_as='html2img.png',)
 
-# use_pdfkit(modified_template)
+use_pdfkit(modified_template)
 # use_weasyprint(modified_template)
 # use_htmltoimz(modified_template)
 # Path('generated.html').write_bytes(modified_template)
@@ -57,6 +60,6 @@ print(total)
 
 
 # Write to a generated HTML file
-file = open("templates/generated.html", "w") 
-file.write(modified_template) 
-file.close() 
+# file = open("templates/generated.html", "w") 
+# file.write(modified_template) 
+# file.close() 

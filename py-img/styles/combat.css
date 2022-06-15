@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: 'Averta';
   src: url("../fonts/avertastd-bold.otf");
-}
+} */
 
 * {
   margin: 0;
@@ -15,6 +15,7 @@
   width: 100%;
   height: 100%;
   background: url("../static/background.svg") no-repeat 50% 50%;
+  /* background: #4291ff; */
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -42,8 +43,8 @@ nav {
   padding: 2.1rem 2rem;
 }
 
-nav .logo-cnr img {
-  height: 42px;
+nav .logo-cnr svg {
+  height: 48px;
 }
 
 .combat-section {
@@ -58,15 +59,15 @@ nav .logo-cnr img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 4.7rem;
-  -webkit-column-gap: 1.4rem;
-          column-gap: 1.4rem;
+  padding: 0 5rem;
+  -webkit-column-gap: 3.4rem;
+          column-gap: 3.4rem;
   color: #fff;
 }
 
 .combat-section .combat-name {
-  width: 65%;
-  font-size: 3.7rem;
+  width: 60%;
+  font-size: 3.9rem;
 }
 
 .combat-section .combat-name h1 {
@@ -74,12 +75,12 @@ nav .logo-cnr img {
 }
 
 .combat-section .combat-details-wrapper {
-  width: 35%;
+  width: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background: #004AB3;
-  border-radius: 1rem;
+  border-radius: 2rem;
   padding: 2rem;
   row-gap: 2rem;
   -webkit-box-orient: vertical;
@@ -112,8 +113,8 @@ nav .logo-cnr img {
   padding: 1rem;
 }
 
-.combat-section .combat-details-wrapper .combat-row .combat-logo-cnr img {
-  height: 34px;
+.combat-section .combat-details-wrapper .combat-row .combat-logo-cnr svg {
+  height: 45px;
 }
 
 footer {
@@ -153,13 +154,14 @@ footer .coupon-code-wrapper .coupon-text {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 2.5rem;
   padding: 1rem;
 }
 
 footer .coupon-code-wrapper .coupon-text p {
   text-align: center;
   color: #fff;
-  font-size: 2rem;
+  font-size: 2.6rem;
 }
 
 footer .coupon-code-wrapper .coupon-text p .coupon-code {
@@ -170,14 +172,14 @@ footer .coupon-code-wrapper .coupon-text p .coupon-code {
 }
 
 footer .coupon-code-container {
-  width: 500px;
+  width: 600px;
   position: absolute;
   z-index: 1;
   height: 0;
   bottom: 0;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
-  border-bottom: 80px solid #004AB3;
+  border-bottom: 90px solid #004AB3;
   padding: 1.2rem;
 }
 /*# sourceMappingURL=combat.css.map */
