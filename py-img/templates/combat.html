@@ -4,71 +4,71 @@
 <link rel="stylesheet" href="styles/combat.css"/>
 <div class="background">
   <nav>
-    <div class="logo-cnr">
-      <img src="static/unacademy-text-logo.svg" alt="unacademy">
-    </div>
+     <div class="logo-cnr">
+        <img src="static/unacademy-text-logo.svg" alt="unacademy">
+     </div>
   </nav>
   <section class="combat-section">
-    <div class="combat-name">
-      <h1>{{combat.name}}</h1>
-    </div>
-    <div class="combat-details-wrapper">
+     <div class="combat-name">
+        <h1>{{combat.name}}</h1>
+     </div>
+     <div class="combat-details-wrapper">
         {% if combat.date %}
         <div class="combat-row">
-          <div class="combat-logo-cnr">
-            <img src="static/calendar-logo.svg" alt="date"/>
-          </div>
-          <p>{{combat.date}}</p>
+           <div class="combat-logo-cnr">
+              <img src="static/calendar-logo.svg" alt="date"/>
+           </div>
+           <p>{{combat.date}}</p>
         </div>
         {% endif %}
         {% if combat.time %}
         <div class="combat-row">
-          <div class="combat-logo-cnr">
-            <img src="static/clock-logo.svg" alt="time"/>
-          </div>
-          <p>{{combat.time}}</p>
-          {% if combat.duration %}
-
-           <span class="period-cnr">
-            <span class="period"></span>
+           <div class="combat-logo-cnr">
+              <img src="static/clock-logo.svg" alt="time"/>
+           </div>
+           <p>{{combat.time}}</p>
+           {% if combat.duration %}
+           <span class="period-cnr"><span class="period"></span>
            </span> <span>{{combat.duration}}</span>
-
-          {% endif %}
+           {% endif %}
         </div>
         {% endif %}
-        {% if combat.topic %}
+        {% if combat.topics %}
         <div class="combat-row">
-          <div class="combat-logo-cnr">
-            <img src="static/book-logo.svg" alt="topic"/>
-          </div>
-          <p>{{combat.topic}}</p>
+           <div class="combat-logo-cnr">
+              <img src="static/book-logo.svg" alt="topic"/>
+           </div>
+           {% for topic in combat.topics %}
+           {% if loop.first %}<span>{{topic}}</span>{% else %} 
+           <span class="period-cnr"><span class="period"></span>
+           </span> <span>{{topic}}</span>{% endif %}
+           {% endfor %}
         </div>
         {% endif %}
         {% if combat.details %}
         <div class="combat-row">
-          <div class="combat-logo-cnr">
-            <img src="static/settings-logo.svg" alt="settings"/>
-          </div>
-          {% for detail in combat.details %}
-            {% if loop.first %}<span>{{detail}}</span>{% else %} <span class="period-cnr">
-              <span class="period"></span>
-            </span> <span>{{detail}}</span>{% endif %}
-          {% endfor %}
+           <div class="combat-logo-cnr">
+              <img src="static/settings-logo.svg" alt="settings"/>
+           </div>
+           {% for detail in combat.details %}
+           {% if loop.first %}<span>{{detail}}</span>{% else %} 
+           <span class="period-cnr"><span class="period"></span>
+           </span> <span>{{detail}}</span>{% endif %}
+           {% endfor %}
         </div>
         {% endif %}
-      </div>
+     </div>
   </section>
   <footer>
-    {% if combat.coupon_code %}
-    <div class="coupon-code-wrapper">
-      <div class="coupon-code-container"></div>
-      <div class="coupon-text">
-        <p>Use code <span class="coupon-code">{{combat.coupon_code}}</span> </p>
-      </div>
-    </div>
-    {% endif %}
+     {% if combat.coupon_code %}
+     <div class="coupon-code-wrapper">
+        <div class="coupon-code-container"></div>
+        <div class="coupon-text">
+           <p>Use code <span class="coupon-code">{{combat.coupon_code}}</span> </p>
+        </div>
+     </div>
+     {% endif %}
   </footer>
-
-  
 </div>
 </body>
+© FreeFormatter.com - FREEFORMATTER is a d/b/a of 10174785 Canada Inc. - Copyright Notice - Privacy Statement - Terms of Use - Contact

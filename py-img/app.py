@@ -2,9 +2,13 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from memory_profiler import profile
 import time
 from pathlib import Path
+from datetime import datetime
 import pdfkit
 from weasyprint import HTML, CSS
 from html2image import Html2Image
+from dateutil import parser
+from generators import *
+
 hti = Html2Image()
 
 t0 = time.time()
@@ -13,58 +17,95 @@ env = Environment(
     autoescape=select_autoescape()
 )
 
+default_combat_obj = {
+    "name": "CBSE Class 10 Mega Combat",
+    "uid": "3ENJ3I3M",
+    "is_enrolled": True,
+    "starts_at": "2022-06-26T05:30:00Z",
+    "topic_groups": [
+        {
+            "name": "Mathematics",
+            "uid": "AZCAV",
+            "title": "Mathematics",
+        },
+        {
+            "name": "Science",
+            "uid": "WWTLJ",
+            "title": "Science",
+        },
+        {
+            "name": "Physics",
+            "uid": "WWTLJ",
+            "title": "Science",
+        },
+    ],
+    "quiz_details": {
+        "available_languages": [],
+        "uid": "L6I3JT7KEI",
+        "title": "CBSE Class 10 Mega Combat",
+        "section": 1,
+        "questions": 0,
+        "duration": 45,
+        "max_question_count": 0
+    },
+    "is_live": False,
+    "state": 10,
+}
+
 template = env.get_template("combat.html")
-# template = env.get_template("test.html")
 
-def return_html(template_name):
+def return_html(template_name, combat_obj):
     template = env.get_template(template_name)
+    combat_date = parser.parse(combat_obj["starts_at"])
+    combat_day = combat_date.strftime("%d %b %Y")
+    combat_time = combat_date.strftime("%H:%M %p")
+    quiz_details = combat_obj["quiz_details"]
+    topics = [topic["name"] for topic in combat_obj["topic_groups"]]
     return template.render(combat={
-        'name':'Fundamentals of JEE - Physics, Chemistry & Mathematics', 
-        'time':'11:00 AM', 
-        'date':'14 May 2022',
-        'topic':'Chemical Bonding', 
-        'details':['1 round', '54 questions'], 
-        'duration':'60 mins', 
-        # 'coupon_code':'ANK2001' 
+        'name':combat_obj["name"], 
+        'time':combat_time, 
+        'date':combat_day,
+        'topics':topics, 
+        'details':[f'{quiz_details["section"]} round', f'{quiz_details["questions"]} questions'], 
+        'duration':f'{quiz_details["duration"]} mins', 
+        'coupon_code':'ANK2001' 
         })
-    # return template.render()
 
-modified_template = return_html(template) 
 
-@profile()
-def use_pdfkit(html):
-    options = {
-    "enable-local-file-access": None,
-    'page-height': 405,
-    'page-width': 720,
-    'margin-top': '0.0in',
-    'margin-right': '0.0in',
-    'margin-bottom': '0.0in',
-    'margin-left': '0.0in'
-    }
-    pdfkit.from_string(html, 'pdfkit.pdf', options=options)
+def create_file():
+    modified_template = return_html(template, default_combat_obj) 
 
-@profile()
-def use_weasyprint(html):
-    """Generate a PDF file from a string of HTML."""
-    htmldoc = HTML(string=html, base_url="")
-    return htmldoc.write_pdf(target='./weasyprint.pdf',stylesheets=[CSS('./styles/combat.css')])
+    # create an image file
+    filename = 'generated'
+    result_file = use_htmltoimz(f'{filename}-img.png',modified_template)
 
-@profile()
-def use_htmltoimz(html):
-    """Generate a PDF file from a string of HTML."""
-    hti.screenshot(html_str=html, css_file='./styles/combat.css', save_as='html2img.png',)
+    # create pdf using pdfkit
+    # result_file = use_pdfkit(f'{filename}-pdfkit.pdf', modified_template)
+    
 
-# use_pdfkit(modified_template)
-# use_weasyprint(modified_template)
-use_htmltoimz(modified_template)
-# Path('generated.html').write_bytes(modified_template)
+    # create pdf using weasyprint
+    # result_file = use_weasyprint(f'{filename}-weasyprint.pdf',modified_template)
+
+
+    # To create a output HTML for testing
+    # create_html(modified_template)
+
+    return result_file
+
+def upload_file_to_s3(filename):
+    # Let's use Amazon S3
+    client = boto3.client('s3',
+    aws_access_key_id='AKIAXVK5ZIQTW6OZUTAQ',
+    aws_secret_access_key='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',
+    region_name='ap-south-1'
+    )
+        
+    # Upload a new file
+    client.upload_file(filename, 'demo-testing-python-imagen', filename)
+
+
+upload_file_to_s3(create_file())
+    
 t1=time.time()
 total = t1-t0
 print(total)
-
-
-# Write to a generated HTML file
-# file = open("templates/generated.html", "w") 
-# file.write(modified_template) 
-# file.close() 
