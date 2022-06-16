@@ -1,4 +1,3 @@
-
 import pdfkit
 from weasyprint import HTML, CSS
 from html2image import Html2Image
