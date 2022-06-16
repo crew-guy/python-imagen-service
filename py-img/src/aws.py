@@ -1,5 +1,9 @@
 import boto3
+import os
 from utils import delete_file
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BUCKET_NAME = 'demo-testing-python-imagen'
 
@@ -9,8 +13,8 @@ class S3Client(object):
         self.client = boto3.client(
             's3', 
             region_name=self.region_name,
-            aws_access_key_id='AKIAXVK5ZIQTW6OZUTAQ',
-            aws_secret_access_key='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',
+            aws_access_key_id=os.getenv('S3_ACCESS_KEY_ID'),
+            aws_secret_access_key=os.getenv('S3_ACCESS_KEY_SECRET'),
         )
 
     # def generate_put_signed_url(self, bucket_name, key, expiry=3600, acl=None):
