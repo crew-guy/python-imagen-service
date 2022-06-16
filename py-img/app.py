@@ -1,15 +1,10 @@
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-from memory_profiler import profile
 import time
 from pathlib import Path
 from datetime import datetime
-import pdfkit
-from weasyprint import HTML, CSS
-from html2image import Html2Image
 from dateutil import parser
 from generators import *
 
-hti = Html2Image()
 
 t0 = time.time()
 env = Environment(

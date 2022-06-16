@@ -1,11 +1,11 @@
 <head>
   <base href="/Users/ankitravikumars/Desktop/python-imagen-service/py-img/">
 </head>
-<link rel="stylesheet" href="styles/combat.css"/>
+<link rel="stylesheet" href="static/styles/combat.css"/>
 <div class="background">
   <nav>
      <div class="logo-cnr">
-        <img src="static/unacademy-text-logo.svg" alt="unacademy">
+        <img src="static/images/unacademy-text-logo.svg" alt="unacademy">
      </div>
   </nav>
   <section class="combat-section">
@@ -16,7 +16,7 @@
         {% if combat.date %}
         <div class="combat-row">
            <div class="combat-logo-cnr">
-              <img src="static/calendar-logo.svg" alt="date"/>
+              <img src="static/images/calendar-logo.svg" alt="date"/>
            </div>
            <p>{{combat.date}}</p>
         </div>
@@ -24,7 +24,7 @@
         {% if combat.time %}
         <div class="combat-row">
            <div class="combat-logo-cnr">
-              <img src="static/clock-logo.svg" alt="time"/>
+              <img src="static/images/clock-logo.svg" alt="time"/>
            </div>
            <p>{{combat.time}}</p>
            {% if combat.duration %}
@@ -36,7 +36,7 @@
         {% if combat.topics %}
         <div class="combat-row">
            <div class="combat-logo-cnr">
-              <img src="static/book-logo.svg" alt="topic"/>
+              <img src="static/images/book-logo.svg" alt="topic"/>
            </div>
            {% for topic in combat.topics %}
            {% if loop.first %}<span>{{topic}}</span>{% else %} 
@@ -48,7 +48,7 @@
         {% if combat.details %}
         <div class="combat-row">
            <div class="combat-logo-cnr">
-              <img src="static/settings-logo.svg" alt="settings"/>
+              <img src="static/images/settings-logo.svg" alt="settings"/>
            </div>
            {% for detail in combat.details %}
            {% if loop.first %}<span>{{detail}}</span>{% else %} 

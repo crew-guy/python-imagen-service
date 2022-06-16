@@ -1,3 +1,9 @@
+
+import pdfkit
+from weasyprint import HTML, CSS
+from html2image import Html2Image
+from memory_profiler import profile
+
 @profile()
 def use_pdfkit(filename, html):
     options = {
@@ -16,13 +22,14 @@ def use_pdfkit(filename, html):
 def use_weasyprint(filename,html):
     """Generate a PDF file from a string of HTML."""
     htmldoc = HTML(string=html, base_url="")
-    htmldoc.write_pdf(target=filename,stylesheets=[CSS('./styles/combat.css')])
+    htmldoc.write_pdf(target=filename,stylesheets=[CSS('./static/styles/combat.css')])
     return filename
 
 @profile()
 def use_htmltoimz(filename, html):
+    hti = Html2Image()
     """Generate a PDF file from a string of HTML."""
-    hti.screenshot(html_str=html, css_file='./styles/combat.css', save_as=filename)
+    hti.screenshot(html_str=html, css_file='./static/styles/combat.css', save_as=filename)
     return filename
 
 # Write to a generated HTML file

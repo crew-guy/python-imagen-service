@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Averta';
-  src: url("/Users/ankitravikumars/Desktop/python-imagen-service/py-img/fonts/avertastd-bold.otf");
+  src: url("/Users/ankitravikumars/Desktop/python-imagen-service/py-img/static/fonts/avertastd-bold.otf");
 }
 
 * {
@@ -14,7 +14,7 @@
 .background {
   width: 100%;
   height: 100%;
-  background: url("/Users/ankitravikumars/Desktop/python-imagen-service/py-img/static/background.svg") no-repeat 50% 50%;
+  background: url("/Users/ankitravikumars/Desktop/python-imagen-service/py-img/static/images/background.svg") no-repeat 50% 50%;
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
