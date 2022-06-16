@@ -20,12 +20,12 @@ def return_html(template_name):
     template = env.get_template(template_name)
     return template.render(combat={
         'name':'Fundamentals of JEE - Physics, Chemistry & Mathematics', 
-        'time':'2pm', 
-        'date':'12/12/2019',
+        'time':'11:00 AM', 
+        'date':'14 May 2022',
         'topic':'Chemical Bonding', 
         'details':['1 round', '54 questions'], 
-        'duration':'60mins', 
-        'coupon_code':'ANK2001' 
+        'duration':'60 mins', 
+        # 'coupon_code':'ANK2001' 
         })
     # return template.render()
 
@@ -55,9 +55,9 @@ def use_htmltoimz(html):
     """Generate a PDF file from a string of HTML."""
     hti.screenshot(html_str=html, css_file='./styles/combat.css', save_as='html2img.png',)
 
-use_pdfkit(modified_template)
+# use_pdfkit(modified_template)
 # use_weasyprint(modified_template)
-# use_htmltoimz(modified_template)
+use_htmltoimz(modified_template)
 # Path('generated.html').write_bytes(modified_template)
 t1=time.time()
 total = t1-t0

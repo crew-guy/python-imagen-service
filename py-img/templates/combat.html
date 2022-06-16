@@ -1,5 +1,5 @@
 <head>
-  <base href="/Users/adityaarora/code/python-imagen-service/py-img/">
+  <base href="/Users/ankitravikumars/Desktop/python-imagen-service/py-img/">
 </head>
 <link rel="stylesheet" href="styles/combat.css"/>
 <div class="background">
@@ -27,6 +27,13 @@
             <img src="static/clock-logo.svg" alt="time"/>
           </div>
           <p>{{combat.time}}</p>
+          {% if combat.duration %}
+
+           <span class="period-cnr">
+            <span class="period"></span>
+           </span> <span>{{combat.duration}}</span>
+
+          {% endif %}
         </div>
         {% endif %}
         {% if combat.topic %}
@@ -43,7 +50,9 @@
             <img src="static/settings-logo.svg" alt="settings"/>
           </div>
           {% for detail in combat.details %}
-            {% if loop.first %}<span>{{detail}}</span>{% else %}•<span>{{detail}}</span>{% endif %}
+            {% if loop.first %}<span>{{detail}}</span>{% else %} <span class="period-cnr">
+              <span class="period"></span>
+            </span> <span>{{detail}}</span>{% endif %}
           {% endfor %}
         </div>
         {% endif %}

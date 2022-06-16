@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Averta';
-  src: url("/Users/adityaarora/code/python-imagen-service/py-img/fonts/avertastd-bold.otf");
+  src: url("/Users/ankitravikumars/Desktop/python-imagen-service/py-img/fonts/avertastd-bold.otf");
 }
 
 * {
@@ -14,8 +14,7 @@
 .background {
   width: 100%;
   height: 100%;
-  background: url("/Users/adityaarora/code/python-imagen-service/py-img/static/background.svg") no-repeat 50% 50%;
-  /* background: #4291ff; */
+  background: url("/Users/ankitravikumars/Desktop/python-imagen-service/py-img/static/background.svg") no-repeat 50% 50%;
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -43,8 +42,8 @@ nav {
   padding: 2.1rem 2rem;
 }
 
-nav .logo-cnr svg {
-  height: 48px;
+nav .logo-cnr img {
+  height: 55px;
 }
 
 .combat-section {
@@ -59,15 +58,15 @@ nav .logo-cnr svg {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 5rem;
-  -webkit-column-gap: 3.4rem;
-          column-gap: 3.4rem;
+  padding: 0 6.2rem;
+  -webkit-column-gap: 3rem;
+          column-gap: 3rem;
   color: #fff;
 }
 
 .combat-section .combat-name {
-  width: 60%;
-  font-size: 3.9rem;
+  width: 59%;
+  font-size: 4.6rem;
 }
 
 .combat-section .combat-name h1 {
@@ -75,14 +74,14 @@ nav .logo-cnr svg {
 }
 
 .combat-section .combat-details-wrapper {
-  width: 40%;
+  width: 41%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background: #004AB3;
   border-radius: 2rem;
   padding: 2rem;
-  row-gap: 2rem;
+  row-gap: 2.2rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -90,6 +89,26 @@ nav .logo-cnr svg {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+}
+
+.combat-section .combat-details-wrapper .period-cnr {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.combat-section .combat-details-wrapper .period-cnr .period {
+  height: 0.6rem;
+  width: 0.6rem;
+  background: #fff;
+  border-radius: 50%;
 }
 
 .combat-section .combat-details-wrapper .combat-row {
@@ -102,19 +121,20 @@ nav .logo-cnr svg {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
-  font-size: 2.3rem;
+  -webkit-column-gap: 0.6rem;
+          column-gap: 0.6rem;
+  font-size: 3rem;
 }
 
 .combat-section .combat-details-wrapper .combat-row .combat-logo-cnr {
   background: #04439D;
   border-radius: 50%;
-  padding: 1rem;
+  padding: 1.6rem;
+  margin-right: 1.4rem;
 }
 
-.combat-section .combat-details-wrapper .combat-row .combat-logo-cnr svg {
-  height: 45px;
+.combat-section .combat-details-wrapper .combat-row .combat-logo-cnr img {
+  height: 55px;
 }
 
 footer {
