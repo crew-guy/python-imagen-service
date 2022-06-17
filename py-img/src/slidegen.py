@@ -3,9 +3,12 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from datetime import datetime
 from dateutil import parser
 from generators import use_htmltoimz, use_pdfkit, use_weasyprint
+import uuid
+
+PATH_TO_TEMPLATES_FOLDER = '/Users/ankitravikumars/Desktop/python-imagen-service/py-img/templates/'
 
 env = Environment(
-    loader=FileSystemLoader('templates'),
+    loader=FileSystemLoader(PATH_TO_TEMPLATES_FOLDER),
     autoescape=select_autoescape()
 )
 
@@ -45,18 +48,18 @@ class HandoutSlide(object):
     
     def get_img(self):
         result_html = self.inject_context_in_html() 
-        result_file = use_htmltoimz('generated-img.png',result_html)
+        result_file = use_htmltoimz(f'{uuid.uuid1()}.png',result_html)
         return result_file
 
-    def get_pdf_using_pdfkit(self):
-        result_html = self.inject_context_in_html()
-        result_file = use_pdfkit('generated-pdfkit.pdf', result_html)
-        return result_file
+    # def get_pdf_using_pdfkit(self):
+    #     result_html = self.inject_context_in_html()
+    #     result_file = use_pdfkit('generated-pdfkit.pdf', result_html)
+    #     return result_file
 
-    def get_pdf_using_weasyprint(self):
-        result_html = self.inject_context_in_html()
-        result_file = use_weasyprint('generated-weasyprint.pdf',result_html)
-        return result_file
+    # def get_pdf_using_weasyprint(self):
+    #     result_html = self.inject_context_in_html()
+    #     result_file = use_weasyprint('generated-weasyprint.pdf',result_html)
+    #     return result_file
     
     def get_html(self):
         return self.inject_context_in_html() 

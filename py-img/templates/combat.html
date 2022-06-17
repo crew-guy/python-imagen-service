@@ -39,9 +39,7 @@
               <img src="static/images/book-logo.svg" alt="topic"/>
            </div>
            {% for topic in context.topics %}
-           {% if loop.first %}<span>{{topic}}</span>{% else %} 
-           <span class="period-cnr"><span class="period"></span>
-           </span> <span>{{topic}}</span>{% endif %}
+           {% if loop.first %}<span>{{topic}}</span>{% elif loop.last %}<span> & {{topic}}</span>{% else %} <span>, {{topic}}</span>{% endif %}
            {% endfor %}
         </div>
         {% endif %}

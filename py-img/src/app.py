@@ -1,6 +1,7 @@
 import time
 from aws import s3_client
 from slidegen import HandoutSlide
+import os
 
 t0 = time.time()
 
@@ -41,9 +42,10 @@ default_combat_obj = {
 
 handout = HandoutSlide('COMBAT', default_combat_obj)
 handout_img = handout.get_img()
+res_html = handout.get_html()
 
 print(f'{handout_img} generated ! now uploading to s3')
-s3_client.upload_file(handout_img)
+# s3_client.upload_file(handout_img, os.getenv('BUCKET_NAME'), f'zamzar/{default_combat_obj["uid"]}/{handout_img}')
 
 print('uploaded to s3 !')
     
