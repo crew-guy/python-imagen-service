@@ -2,11 +2,12 @@ import time
 from aws import s3_client
 from slidegen import HandoutSlide
 import os
+from utils import delete_file
 
 t0 = time.time()
 
 default_combat_obj = {
-    "name": "CBSE Class 10 Mega Combat",
+    "name": "UPSC CSESE Current Affairs Special Combat. 80 characters title should come here.",
     "uid": "3ENJ3I3M",
     "is_enrolled": True,
     "starts_at": "2022-06-26T05:30:00Z",
@@ -15,6 +16,16 @@ default_combat_obj = {
             "name": "Mathematics",
             "uid": "AZCAV",
             "title": "Mathematics",
+        },
+        {
+            "name": "Science",
+            "uid": "WWTLJ",
+            "title": "Science",
+        },
+        {
+            "name": "Physics",
+            "uid": "WWTLJ",
+            "title": "Science",
         },
         {
             "name": "Science",
@@ -48,7 +59,7 @@ print(f'{handout_img} generated ! now uploading to s3')
 # s3_client.upload_file(handout_img, os.getenv('BUCKET_NAME'), f'zamzar/{default_combat_obj["uid"]}/{handout_img}')
 
 print('uploaded to s3 !')
-    
+
 t1=time.time()
 total = t1-t0
 print(total)

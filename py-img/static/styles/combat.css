@@ -1,14 +1,12 @@
 @font-face {
-  font-family: 'Averta';
+  font-family: "Averta";
   src: url("/Users/ankitravikumars/Desktop/python-imagen-service/py-img/static/fonts/avertastd-bold.otf");
 }
-
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: 'Averta';
+  box-sizing: border-box;
+  font-family: "Averta";
 }
 
 .background {
@@ -16,190 +14,97 @@
   height: 100%;
   background: url("/Users/ankitravikumars/Desktop/python-imagen-service/py-img/static/images/background.svg") no-repeat 50% 50%;
   background-size: cover;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 nav {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-start;
+  align-items: center;
   padding: 2.1rem 2rem;
 }
-
 nav .logo-cnr img {
   height: 55px;
 }
 
 .combat-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -6%;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: stretch;
+  align-items: center;
   padding: 0 6.2rem;
-  -webkit-column-gap: 3rem;
-          column-gap: 3rem;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
   color: #fff;
 }
-
 .combat-section .combat-name {
   width: 59%;
   font-size: 4.6rem;
 }
-
 .combat-section .combat-name h1 {
   text-align: left;
+  text-overflow: hidden;
 }
-
 .combat-section .combat-details-wrapper {
   width: 41%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   background: #004AB3;
   border-radius: 2rem;
   padding: 2rem;
   row-gap: 2.2rem;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  flex-direction: column;
+  align-items: stretch;
 }
-
 .combat-section .combat-details-wrapper .period-cnr {
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .combat-section .combat-details-wrapper .period-cnr .period {
   height: 0.6rem;
   width: 0.6rem;
   background: #fff;
   border-radius: 50%;
 }
-
 .combat-section .combat-details-wrapper .combat-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 0.6rem;
-          column-gap: 0.6rem;
+  justify-content: flex-start;
+  align-items: center;
+  -moz-column-gap: 0.6rem;
+       column-gap: 0.6rem;
   font-size: 3rem;
+  word-wrap: break-word;
 }
-
 .combat-section .combat-details-wrapper .combat-row .combat-logo-cnr {
   background: #04439D;
   border-radius: 50%;
   padding: 1.6rem;
   margin-right: 1.4rem;
 }
-
 .combat-section .combat-details-wrapper .combat-row .combat-logo-cnr img {
   height: 55px;
 }
 
 footer {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1.5rem;
 }
-
-footer .coupon-code-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
+footer .coupon-code {
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-}
-
-footer .coupon-code-wrapper .coupon-text {
-  z-index: 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
+  background: #04439D;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.3rem;
   font-size: 2.5rem;
-  padding: 1rem;
-}
-
-footer .coupon-code-wrapper .coupon-text p {
   text-align: center;
   color: #fff;
-  font-size: 2.6rem;
-}
-
-footer .coupon-code-wrapper .coupon-text p .coupon-code {
-  background: #04439D;
-  padding: 0.3rem;
-  border-radius: 0.3rem;
-  font-size: 2.35rem;
-}
-
-footer .coupon-code-container {
-  width: 600px;
-  position: absolute;
-  z-index: 1;
-  height: 0;
-  bottom: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-bottom: 90px solid #004AB3;
-  padding: 1.2rem;
-}
-/*# sourceMappingURL=combat.css.map */
+}/*# sourceMappingURL=combat.css.map */

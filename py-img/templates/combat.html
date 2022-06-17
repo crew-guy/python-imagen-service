@@ -1,71 +1,71 @@
 <head>
-  <base href="/Users/ankitravikumars/Desktop/python-imagen-service/py-img/">
+   <base href="/Users/ankitravikumars/Desktop/python-imagen-service/py-img/">
 </head>
 <link rel="stylesheet" href="static/styles/combat.css"/>
 <div class="background">
-  <nav>
-     <div class="logo-cnr">
-        <img src="static/images/unacademy-text-logo.svg" alt="unacademy">
-     </div>
-  </nav>
-  <section class="combat-section">
-     <div class="combat-name">
-        <h1>{{context.name}}</h1>
-     </div>
-     <div class="combat-details-wrapper">
-        {% if context.date %}
-        <div class="combat-row">
-           <div class="combat-logo-cnr">
-              <img src="static/images/calendar-logo.svg" alt="date"/>
-           </div>
-           <p>{{context.date}}</p>
-        </div>
-        {% endif %}
-        {% if context.time %}
-        <div class="combat-row">
-           <div class="combat-logo-cnr">
-              <img src="static/images/clock-logo.svg" alt="time"/>
-           </div>
-           <p>{{context.time}}</p>
-           {% if context.duration %}
-           <span class="period-cnr"><span class="period"></span>
-           </span> <span>{{context.duration}}</span>
-           {% endif %}
-        </div>
-        {% endif %}
-        {% if context.topics %}
-        <div class="combat-row">
-           <div class="combat-logo-cnr">
-              <img src="static/images/book-logo.svg" alt="topic"/>
-           </div>
-           {% for topic in context.topics %}
-           {% if loop.first %}<span>{{topic}}</span>{% elif loop.last %}<span> & {{topic}}</span>{% else %} <span>, {{topic}}</span>{% endif %}
-           {% endfor %}
-        </div>
-        {% endif %}
-        {% if context.details %}
-        <div class="combat-row">
-           <div class="combat-logo-cnr">
-              <img src="static/images/settings-logo.svg" alt="settings"/>
-           </div>
-           {% for detail in context.details %}
-           {% if loop.first %}<span>{{detail}}</span>{% else %} 
-           <span class="period-cnr"><span class="period"></span>
-           </span> <span>{{detail}}</span>{% endif %}
-           {% endfor %}
-        </div>
-        {% endif %}
-     </div>
-  </section>
-  <footer>
-     {% if context.coupon_code %}
-     <div class="coupon-code-wrapper">
-        <div class="coupon-code-container"></div>
-        <div class="coupon-text">
-           <p>Use code <span class="coupon-code">{{context.coupon_code}}</span> </p>
-        </div>
-     </div>
-     {% endif %}
-  </footer>
+   <nav>
+      <div class="logo-cnr">
+         <img src="static/images/unacademy-text-logo.svg" alt="unacademy">
+      </div>
+   </nav>
+   <section class="combat-section">
+      <div class="combat-name">
+         <h1>{{context.name}}</h1>
+      </div>
+      <div class="combat-details-wrapper">
+         {% if context.date %}
+         <div class="combat-row">
+            <div class="combat-logo-cnr">
+               <img src="static/images/calendar-logo.svg" alt="date"/>
+            </div>
+            <p>{{context.date}}</p>
+         </div>
+         {% endif %}
+         {% if context.time %}
+         <div class="combat-row">
+            <div class="combat-logo-cnr">
+               <img src="static/images/clock-logo.svg" alt="time"/>
+            </div>
+            <p>{{context.time}}</p>
+            {% if context.duration %}
+            <span class="period-cnr"><span class="period"></span>
+            </span> <span>{{context.duration}}</span>
+            {% endif %}
+         </div>
+         {% endif %}
+         {% if context.details %}
+         <div class="combat-row">
+            <div class="combat-logo-cnr">
+               <img src="static/images/settings-logo.svg" alt="settings"/>
+            </div>
+            {% for detail in context.details %}
+            {% if loop.first %}<span>{{detail}}</span>{% else %} 
+            <span class="period-cnr"><span class="period"></span>
+            </span> <span>{{detail}}</span>{% endif %}
+            {% endfor %}
+         </div>
+         {% endif %}
+         {% if context.topics %}
+         <div class="combat-row">
+            <div class="combat-logo-cnr">
+               <img src="static/images/book-logo.svg" alt="topic"/>
+            </div>
+            {% for topic in context.topics %}
+            <span>
+            {% if loop.first %}{{topic}}
+            {% elif loop.last %} & {{topic}}
+            {% else %}, {{topic}}
+            </span>
+            {% endif %}
+            {% endfor %}
+         </div>
+         {% endif %}
+      </div>
+   </section>
+   <footer>
+      {% if context.coupon_code %}
+         <p class="coupon-code">Use code {{context.coupon_code}} </p>
+      {% endif %}
+   </footer>
 </div>
 </body>
