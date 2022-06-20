@@ -2,7 +2,7 @@ from re import template
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from datetime import datetime
 from dateutil import parser
-from generators import use_htmltoimz, use_pdfkit, use_weasyprint
+from generators import use_htmltoimz
 import uuid
 
 PATH_TO_TEMPLATES_FOLDER = '/Users/ankitravikumars/Desktop/python-imagen-service/py-img/templates/'
